@@ -1,2 +1,15 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+
+
+<h2>Book detail</h2>
+<table>
+    <tbody>
+      <% @books.each do |book| %>
+      <tr>
+        <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+        <td><%= link_to @user.name, user_path(@user) %></td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
