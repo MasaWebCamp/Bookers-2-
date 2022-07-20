@@ -1,3 +1,22 @@
+<h2>User info</h2>
+<%= image_tag @user.get_profile_image(100,100) %>
+<table>
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= @user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+
+<% if @user == current_user %>
+  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+<% end %>
+
 <h2>New Book</h2>
   <%= form_with model: @book do |f| %>
     <h4>Title</h4>
@@ -9,24 +28,23 @@
 
 <h2>Books</h2>
 <table>
-    <thead>
-      <tr>
-        <th>image</th>
-        <th>name</th>
-      </tr>
-    </thead>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+    </tr>
+  </thead>
 
-    <tbody>
-      <% @users.each do |user| %>
-      <tr>
-        <td>
-          <%= link_to _path(post_image.id) do %>
-          <%= image_tag user.get_profile_image %>
-          <% end %>
-        </td>
-        <td><%= user.name %></td>
-
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= link_to _path(post_image.id) do %>
+        <%= image_tag user.get_profile_image %>
+        <% end %>
+      </td>
+      <td><%= user.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
