@@ -1,12 +1,27 @@
-<h2>User info</h2>
-<%= render 'layouts/error', model: @user %>
+<p id="notice"></p>
 
-<%= form_with model: @user do |f| %>
-  <h4>Name</h4>
-    <%= f.text_field :name %>
-  <h4>Image</h4>
-    <%= f.file_field :profile_image, accept: "profile_image/*" %>
-  <h4>Introduction</h4>
-    <%= f.text_area :introduction %>
-  <%= f.submit 'Update User' %>
-<% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+        <%= render 'layouts/error', model: @user %>
+          <%= form_with model: @user do |f| %>
+          <div class="form-group">
+            <label for="user_name">Name</label><br>
+            <%= f.text_field :name %>
+          </div>
+          <div class="form-group">
+            <label for="user_image">Image</label><br>
+            <%= f.file_field :profile_image, accept: "profile_image/*" %>
+          </div>
+          <div class="form-group">
+            <label for="user_introduction">Introduction</label><br>
+            <%= f.text_area :introduction %>
+          </div>
+          <div class="form-group">
+          <%= f.submit 'Update User' %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
